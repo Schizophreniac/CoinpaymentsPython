@@ -22,7 +22,10 @@ class CoinPaymentsAPI:
 
 	def create_hmac(self, fields):
 		"""
-			Every API call has a SHA-512 HMAC signature generated with your private key. A server generates it's own HMAC signature and compares it with the API caller's. If they don't match the API call is discarded. The HMAC signature is sent as a HTTP header called 'HMAC'.
+			Every API call has a SHA-512 HMAC signature generated with your private key.
+			A server generates it's own HMAC signature and compares it with the API caller's.
+			If they don't match the API call is discarded. The HMAC signature is sent as a HTTP
+			header called 'HMAC'.
 
 			https://www.coinpayments.net/apidoc-intro
 		"""
@@ -37,7 +40,6 @@ class CoinPaymentsAPI:
 			Returns a response (JSON) for 'fields' dict. 
 		"""
 		paybytes, sign = self.create_hmac(fields)
-
 		headers = {
 			'Content-Type': 'application/x-www-form-urlencoded',
 			'hmac': sign
@@ -95,7 +97,10 @@ class CoinPaymentsAPI:
 
 	def get_deposit_address(self, currency):
 		"""
-		Addresses returned by this API are for personal use deposits and reuse the same personal address(es) in your wallet. There is no fee for these deposits but they don't send IPNs. For commercial-use addresses see https://www.coinpayments.net/apidoc-get-callback-address.
+		Addresses returned by this API are for personal use deposits and reuse
+		the same personal address(es) in your wallet. There is no fee for these
+		deposits but they don't send IPNs. For commercial-use addresses see 
+		https://www.coinpayments.net/apidoc-get-callback-address.
 		"""
 		command = 'get_deposit_address'
 		optional_fields = {
