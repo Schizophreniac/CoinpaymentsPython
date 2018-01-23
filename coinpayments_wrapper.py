@@ -6,9 +6,6 @@ import urllib.parse
 
 
 class CoinPaymentsAPI:
-	""" 
-		currency=BTC&version=1&cmd=get_callback_address&key=your_api_public_key&format=json
-	"""
 
 	api_url = 'https://www.coinpayments.net/api.php'
 
