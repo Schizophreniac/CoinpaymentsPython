@@ -36,9 +36,7 @@ class CoinPaymentsAPI:
 
 
 	def send_request(self, fields):
-		"""
-			Returns a response (JSON) for 'fields' dict. 
-		"""
+		""" Returns a response (JSON) for 'fields' dict. """
 		paybytes, sign = self.create_hmac(fields)
 		headers = {
 			'Content-Type': 'application/x-www-form-urlencoded',
@@ -50,9 +48,7 @@ class CoinPaymentsAPI:
 
 
 	def get_suitable_fields(self, command, optional_fields={}):
-		"""
-			Returns 'fields' dict with optional fields if it's needed.
-		"""
+		""" Returns 'fields' dict with optional fields if it's needed. """
 		fields = {
 			'cmd': command,
 			'key': self.public_key,
@@ -65,18 +61,14 @@ class CoinPaymentsAPI:
 
 
 	def get_basic_info(self):
-		"""
-			https://www.coinpayments.net/apidoc-get-basic-info
-		"""
+		""" https://www.coinpayments.net/apidoc-get-basic-info """
 		command = 'get_basic_info'
 
 		return self.send_request(self.get_suitable_fields(command))
 
 
 	def get_rates(self):
-		"""
-			https://www.coinpayments.net/apidoc-rates
-		"""
+		""" https://www.coinpayments.net/apidoc-rates """
 		command = 'rates'
 		optional_fields = {
 			'short': 1,
@@ -87,9 +79,7 @@ class CoinPaymentsAPI:
 
 
 	def get_coin_balances(self):
-		"""
-			https://www.coinpayments.net/apidoc-balances
-		"""
+		""" https://www.coinpayments.net/apidoc-balances """
 		command = 'balances'
 
 		return self.send_request(self.get_suitable_fields(command))
