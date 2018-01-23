@@ -12,7 +12,6 @@ class CoinPaymentsAPI:
 
 	api_url = 'https://www.coinpayments.net/api.php'
 
-
 	def __init__(self, public_key, private_key):
 		self.format = 'json'
 		self.private_key = private_key
